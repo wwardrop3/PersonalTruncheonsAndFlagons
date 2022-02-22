@@ -1,0 +1,25 @@
+/* *{
+    border: 3px solid green
+} */
+
+#mainContent {
+    display:flex;
+    flex-direction: column;
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: red;
+    border: 3px solid green;
+}
+
+.gamePlay {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    color: blue;
+    border: 3px solid blue;
+}
+

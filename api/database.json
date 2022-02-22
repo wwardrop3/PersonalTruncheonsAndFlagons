@@ -1,0 +1,57 @@
+{
+    "teams": [
+        {
+            "id": 1,
+            "name": "Goblins"
+        },
+        {
+            "id": 2,
+            "name": "Fairies"
+        },
+        {
+            "id": 3,
+            "name": "Knights"
+        }
+    ],
+    "players": [
+        {
+            "id": 1,
+            "name": "John",
+            "teamId": 1
+        },
+        {
+            "id": 2,
+            "name": "Will",
+            "teamId": 3
+        },
+        {
+            "id": 3,
+            "name": "Carl",
+            "teamId": 2
+        },
+        {
+            "id": 4,
+            "name": "John",
+            "teamId": 2
+        },
+        {
+            "id": 5,
+            "name": "Bill",
+            "teamId": 2
+        },
+        {
+            "id": 6,
+            "name": "Mark",
+            "teamId": 3
+        }
+    ],
+    "teamScores": [
+        {
+            "id": 1,
+            "teamId": 2,
+            "gameScore": 12,
+            "timestamp": ""
+
+        }
+    ]
+}
