@@ -10,8 +10,6 @@ const selectedTeams = {
     "teamSelect--3": 0
 }
 
-const selectedTeamsArray = []
-
 
 export const GameSetUp = () => {
     let currentTeams = getTeams()
@@ -34,49 +32,50 @@ document.addEventListener(
     (changeEvent) => {
         if(changeEvent.target.id.startsWith("teamSelect")) {
             //check if the team id has already been added to current game list
-            const uniqueCheck = checkUnique(changeEvent.target.value)
-            selectedTeams[changeEvent.target.id] = parseInt(changeEvent.target.value)
-            console.log(selectedTeams)
-            const zeroCheck = checkZero()
-            if(uniqueCheck === false && zeroCheck === false){
-                document.querySelector("#gamePlay").innerHTML = "GamePlay"
-                console.log("asdfasd")
+            //will return true if it already exists in selected teams
+            const sameCheck = checkSame(changeEvent.target.value)
+            if(sameCheck===true){
+                return false
+            } else {
+                selectedTeams[changeEvent.target.id] = parseInt(changeEvent.target.value)
+                console.log(selectedTeams)
+                const zeroCheck = checkZero()
+                if(sameCheck === false && zeroCheck === false){
+                    document.querySelector("#gamePlay").innerHTML = "GamePlay"
+                }
             }
+            
             
             }
             }
 )
 
-const checkUnique = (teamId) => {
+const checkSame = (teamId) => {
     const teams = getTeams()
     const selectedTeamsArray = Object.keys(selectedTeams).map(key => {
         return selectedTeams[key]
     })
+    //true if it already exists
     const check = selectedTeamsArray.includes(parseInt(teamId))
-    //if it is unique, add it to the currentteamscore table
     const foundTeam = teams.find(team => {
         return parseInt(teamId) === team.id
     })
-    
+    //if it does not already exist
     if (check===false){
-        addCurrentTeamScore(foundTeam)
+        console.log(foundTeam)
+        setCurrentTeamScore(foundTeam)
+        return check
     }
-    return check
 }
 
 const checkZero = () => {
+    const selectedTeamsArray = Object.keys(selectedTeams).map(key => {
+        return selectedTeams[key]
+    })
     const checkZero = selectedTeamsArray.includes(0)
     return checkZero
 }
 
 
 
-const addCurrentTeamScore = (teamId) => {
-    const teams = getTeams()
-    const foundTeam = teams.find(team => {
-        return team.id === parseInt(teamId)
-    })
-    setCurrentTeamScore(foundTeam)
-    }
-    
 
