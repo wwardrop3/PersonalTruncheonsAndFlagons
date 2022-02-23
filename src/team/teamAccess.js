@@ -4,13 +4,11 @@ let appStateTeams = []
 
 
 export const fetchTeams = () => {
-    //Get score array from within json file
     return fetch(`${API}/teams`)
-    //Converts from json to js array
     .then(response => response.json())
-    //Stores external data in application state
-    .then((teamArray) => appStateTeams.push(teamArray))
-        //scoreArray is converted js objec)
+    .then(
+        (response) => appStateTeams = response
+    )
 }
 
 export const getTeams = () => {
