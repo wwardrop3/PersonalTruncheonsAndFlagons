@@ -1,3 +1,4 @@
+import { getTeams } from "../team/teamAccess.js"
 
 
 const API = "http://localhost:8088"
@@ -12,7 +13,9 @@ export const fetchGames = () => {
     )
 }
 
-export const getTeamScores = () => {
-    const listArray = appStateTeamScores.map(teamScore => ({...teamScore}))
-    return listArray
+
+const newId = () => {
+    const lastIndex = appStateTeamScores.length -1
+    const newId = appStateTeamScores[lastIndex].id +1
+    return newId
 }

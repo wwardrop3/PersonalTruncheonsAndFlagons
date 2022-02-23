@@ -2,24 +2,26 @@
     border: 3px solid green
 } */
 
-#mainContent {
+/* .mainContent {
     display:flex;
-    flex-direction: column;
-}
+} */
 
-.gameInfo {
+.data {
     display: flex;
-    flex-direction: column;
-    width: 100%;
     color: red;
+    flex-direction: column;
     border: 3px solid green;
 }
 
-.gamePlay {
+.gameArea {
     display: flex;
     flex-direction: column;
-    width: 70%;
     color: blue;
     border: 3px solid blue;
 }
 
+.teamSelections {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}

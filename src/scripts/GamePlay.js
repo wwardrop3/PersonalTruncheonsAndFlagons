@@ -1,31 +1,30 @@
+//module produces html for gamplay
 
+import { getCurrentGameScores } from "../game/gameAccess.js"
 
-export const siteHTML = () => {
-    return `
-    <article id = "mainContent"
-        <section class = "gameInfo">
+let roundNumber = 1
+let roundTeamScores = []
 
-            <div class = "teamInput">
-                <h2>Add Team</h2>
+export const GamePlay = () => {
+    const gameScores = getCurrentGameScores()
+    roundTeamScores = gameScores
 
-            </div>
-            <div class = "playerInput">
-                <h2>Add Player</h2>
+    let html = `<h3 id = "roundNumber">Round #${roundNumber}</h3>`
 
-            </div>
-            <div class = "currentGame">
-                <h2>Current Game</h2>
+    gameScores.forEach(teamScore => {
+        html += `<div class = "teamScoreInput">
+        <label for="scoreInput">${teamScore.teamName}</label>
+        <input name = "scoreInput" id = "teamScore--${teamScore.teamId}"></input><p>
+        </div>`
 
-            </div>
-            <div class = "leaderboard">
-                <h2>Leaderboard</h2>
+        
+    });
+    html+= `<p><button id="saveRound">Save Round</button>`
+    roundNumber++
 
-            </div>
-        </section>
+    return html
 
-        <section class = "gamePlay">
-            <h1>Truncheons and Flagons</h1>
-            <button class = "startGame">Start Game</button>
-        </section>
-    </article>`
 }
+
+
+
