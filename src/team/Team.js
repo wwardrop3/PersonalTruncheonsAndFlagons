@@ -1,3 +1,4 @@
+import { setTeam } from "./teamAccess.js"
 
 
 export const Team  = () => {
@@ -7,3 +8,16 @@ export const Team  = () => {
                 <input type = "text" id = "newTeamInput" name = "newTeam" placeholder = "Enter Team Name"></input>
                 <button id = "teamAdded">Add Team</button>`
 }
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        if(clickEvent.target.id === "teamAdded"){
+            const input = document.querySelector("#newTeamInput").value
+            setTeam(input)
+            document.dispatchEvent(new CustomEvent("stateChanged"))
+            
+        }
+        
+    }
+)

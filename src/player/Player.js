@@ -12,21 +12,20 @@ export const Player = () => {
         <input id = "addFirstName" name = "firstName" placeholder = "Enter First Name">
     </div>
     <div id = "lastName">
-        <label for = "lastName">First Name</label>
+        <label for = "lastName">Last Name</label>
         <input id = "addLastName" name = "lastName" placeholder = "Enter Last Name">
     </div>
     ${selectTeam()}
 
-    
     `
 }
 
 
 const selectTeam = () => {
     const teams = getTeams()
-    let html = `<select id = "selectPlayerTeam">`
+    let html = `<select id = "selectPlayerTeam">
+    <option value = "0">Select Team...</option>`
     const listArray = teams.map(team => {
-        console.log(team.name)
         return `<option value = "${team.id}">${team.name}</option>`
     })
 
@@ -51,7 +50,7 @@ document.addEventListener(
                 playerTeam: playerTeam
             }
             setPlayer(newPlayerObject)
-            console.log(newPlayerObject)
+            document.dispatchEvent(new CustomEvent("stateChanged"))
         }
         }
        

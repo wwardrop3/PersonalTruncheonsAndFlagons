@@ -1,6 +1,6 @@
 const API = "http://localhost:8088"
 
-let appStatePlayers = ""
+let appStatePlayers = []
 
 export const fetchPlayers = () => {
     return fetch(`${API}/players`)
@@ -11,8 +11,7 @@ export const fetchPlayers = () => {
 }
 
 export const getPlayers = () => {
-    const listArray = appStatePlayers.map(player => ({...player}))
-    return listArray
+    return appStatePlayers
 }
 
 const newId = () => {

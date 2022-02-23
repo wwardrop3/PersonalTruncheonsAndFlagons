@@ -12,8 +12,7 @@ export const fetchTeams = () => {
 }
 
 export const getTeams = () => {
-    const listArray = appStateTeams.map(team => ({...team}))
-    return listArray
+    return appStateTeams
 }
 
 const newId = () => {
@@ -28,6 +27,7 @@ export const setTeam = (teamName) => {
         name: teamName
     }
     sendTeam(newTeam)
+    
 }
 
 export const sendTeam = (teamObject) => {
@@ -43,14 +43,3 @@ export const sendTeam = (teamObject) => {
     .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
 }
 
-document.addEventListener(
-    "click",
-    (clickEvent) => {
-        if(clickEvent.target.id === "teamAdded"){
-            const input = document.querySelector("#newTeamInput").value
-            setTeam(input)
-            document.dispatchEvent(new CustomEvent("stateChanged"))
-        }
-        
-    }
-)

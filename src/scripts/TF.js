@@ -21,6 +21,7 @@ export const siteHTML = () => {
         <section id = "gamePlayContainer">
             <h1>Truncheons and Flagons</h1>
             <div id = "gamePlay">
+                <button id = "startGame">Start Game</button>
             </div>
     `
 }

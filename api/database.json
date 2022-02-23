@@ -51,12 +51,6 @@
       "id": 6,
       "name": "Mark",
       "teamId": 3
-    },
-    {
-      "playerFirstName": "Will",
-      "playerLastName": "Wardrop",
-      "playerTeam": "",
-      "id": 7
     }
   ],
   "teamScores": [
