@@ -67,6 +67,7 @@ document.addEventListener(
                     sendGame(currentTeamScore)
                 });
                 resetCurrentTeamScores()
+                roundNumber = 1
             }
             
         }

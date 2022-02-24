@@ -5,7 +5,7 @@ import { getCurrentTeamScoresArray } from "./gameAccess.js"
 
 export const CurrentGame = () => {
     const currentTeamScoresArray = getCurrentTeamScoresArray()
-    let html = `<div id = "currentGame">`
+    let html = `<h2>Current Game</h2>`
 
     const listArray = currentTeamScoresArray.map(currentTeamScore => {
         return `<p>${currentTeamScore.teamName} currently has ${currentTeamScore.teamScore} points`

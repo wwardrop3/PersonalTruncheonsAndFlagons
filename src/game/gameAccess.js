@@ -18,7 +18,7 @@ export const fetchTeamScores = () => {
 }
 
 export const getTeamScores = () => {
-    return appStateTeamScores()
+    return appStateTeamScores
 }
 
 export const getCurrentTeamScores = () => {
@@ -60,16 +60,18 @@ export const updateRoundScore = (teamId, teamScore) => {
     });
 }
 
-export const sendGame = (teamScoreObject) => {
+
+export const sendGame = (teamObject) => {
     const fetchOptions = {
+        //POST tells the API that you want to create something new
         method: "POST",
         headers: {
-            "Content-Type": "application/json()"
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(teamScoreObject) 
+        body: JSON.stringify(teamObject)
     }
     return fetch(`${API}/teamScores`, fetchOptions)
-    .then(response => response.json())
+    .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
 }
 
 export const resetCurrentTeamScores = () => {

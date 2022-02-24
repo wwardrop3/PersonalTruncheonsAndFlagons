@@ -1,7 +1,9 @@
+import { sendGame } from "../game/gameAccess.js"
+
 const API = "http://localhost:8088"
 
 let appStateTeams = []
-
+let currentTeams = []
 
 export const fetchTeams = () => {
     return fetch(`${API}/teams`)
@@ -15,6 +17,12 @@ export const getTeams = () => {
     return appStateTeams
 }
 
+export const getCurrentTeams = () => {
+    return currentTeams
+}
+
+
+
 const newId = () => {
     const lastIndex = appStateTeams.length -1
     const newId = appStateTeams[lastIndex].id +1
@@ -27,6 +35,7 @@ export const setTeam = (teamName) => {
         name: teamName
     }
     sendTeam(newTeam)
+    sendInitialTeamScore(newTeam)
     
 }
 
@@ -40,6 +49,15 @@ export const sendTeam = (teamObject) => {
         body: JSON.stringify(teamObject)
     }
     return fetch(`${API}/teams`, fetchOptions)
-    .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
+    .then(response => response.json())
+}
+
+export const sendInitialTeamScore = (teamObject) => {
+    const newInitialTeamScore = {
+        teamId: teamObject.id,
+        teamName: teamObject.name,
+        teamScore: 0
+    }
+    sendGame(newInitialTeamScore)
 }
 

@@ -1,3 +1,4 @@
+import { LeaderBoard } from "../game/Leaderboard.js"
 import { Player } from "../player/Player.js"
 import { Team } from "../team/Team.js"
 
@@ -12,12 +13,12 @@ export const siteHTML = () => {
                 ${Player()}
             </div>
             <div id = "currentGame">
-            Current Game
+            <h2>Current Game</h2>
             <p>
             <em>No game in progress...</em>
             </div>
             <div id = "leaderBoard">
-            Leader Board
+            ${LeaderBoard()}
             </div>
         </section>
         <section id = "gamePlayContainer">
@@ -25,5 +26,6 @@ export const siteHTML = () => {
             <div id = "gamePlay">
                 <button id = "startGame">Start Game</button>
             </div>
+        </section>
     `
 }
