@@ -73,11 +73,12 @@ const checkCurrentTeamScores = () => {
 
     let checkUnique = ""
     console.log(currentTeamScoreArray)
-    if(currentTeamScoreArray[0].teamId===currentTeamScoreArray[1].teamId || currentTeamScoreArray[0].teamId===currentTeamScoreArray[2].teamId || currentTeamScoreArray[1] === currentTeamScoreArray[2].teamId){
+    if(currentTeamScoreArray[0] === currentTeamScoreArray[1] || currentTeamScoreArray[0]===currentTeamScoreArray[2] || currentTeamScoreArray[1] === currentTeamScoreArray[2]){
         checkUnique = false
     } else {
         checkUnique = true
     }
+
 
     if(checkLength === true && checkUnique === true){
         return true

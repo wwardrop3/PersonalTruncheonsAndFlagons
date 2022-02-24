@@ -1,6 +1,8 @@
 //module produces html for gamplay
 
-import { getCurrentTeamScores, getCurrentTeamScoresArray } from "../game/gameAccess.js"
+import { CurrentGame } from "../game/CurrentGame.js"
+import { getCurrentTeamScores, getCurrentTeamScoresArray, sendGameScores, updateRoundScore } from "../game/gameAccess.js"
+import { GameSetUp } from "./GameSetUp.js"
 
 let roundNumber = 1
 let roundTeamScores = []
@@ -23,8 +25,49 @@ export const GamePlay = () => {
     roundNumber++
 
     return html
-
 }
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        if(clickEvent.target.id === "saveRound"){
+            const currentTeamScores = getCurrentTeamScoresArray()
+            if(roundNumber < 4){
+                //add scores to currentTeamScores
+                
+                currentTeamScores.forEach(currentTeamScore => {
+                    const team = document.querySelector(`#teamScore--${currentTeamScore.teamId}`)
+                    const teamScore = team.value
+                    updateRoundScore(currentTeamScore.teamId, teamScore)
+                });
+                //refresh gamePlay
+                document.querySelector("#gamePlay").innerHTML = GamePlay()
+                document.querySelector("#currentGame").innerHTML = CurrentGame()
+            } else {
+                currentTeamScores.forEach(currentTeamScore => {
+                    const team = document.querySelector(`#teamScore--${currentTeamScore.teamId}`)
+                    const teamScore = team.value
+                    updateRoundScore(currentTeamScore.teamId, teamScore)
+                });
+                document.querySelector("#currentGame").innerHTML = CurrentGame()
+                const finalTeamScores = getCurrentTeamScoresArray()
+                //determine who won
+                const sortedFinalTeamScores = finalTeamScores.sort((a,b) => b.teamScore - a.teamScore)
+                //window alert who won
+                window.alert(`${sortedFinalTeamScores[0].teamName} wins with ${sortedFinalTeamScores[0].teamScore} points!`)
+                
+                
+                //start new game (Gamesetup)
+                document.querySelector("#gamePlay").innerHTML = GameSetUp()
+                
+                
+                //send current teamscores to teamscores database
+                sendGameScores()
+            }
+            
+        }
+    }
+)
 
 
 
