@@ -1,3 +1,4 @@
+import { CurrentGame } from "../game/CurrentGame.js"
 import { fetchTeamScores } from "../game/gameAccess.js"
 import { fetchPlayers } from "../player/playerAccess.js"
 import { fetchTeams } from "../team/teamAccess.js"
@@ -26,5 +27,12 @@ document.addEventListener(
         if(clickEvent.target.id ==="startGame"){
             document.querySelector("#gamePlay").innerHTML = GameSetUp()
         }
+    }
+)
+
+document.addEventListener(
+    "teamSet",
+    (customEvent) => {
+        document.querySelector("#currentGame").innerHTML = CurrentGame()
     }
 )

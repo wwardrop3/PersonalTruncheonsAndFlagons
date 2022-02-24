@@ -13,6 +13,8 @@ export const siteHTML = () => {
             </div>
             <div id = "currentGame">
             Current Game
+            <p>
+            <em>No game in progress...</em>
             </div>
             <div id = "leaderBoard">
             Leader Board

@@ -1,6 +1,6 @@
 ///this module will display the team selections to start the game
 
-import { setCurrentTeamScore, getCurrentTeamScores, getTeamScores } from "../game/gameAccess.js"
+import { setCurrentTeamScore, getCurrentTeamScores, getTeamScores, getCurrentTeamScoresArray } from "../game/gameAccess.js"
 import { getTeams } from "../team/teamAccess.js"
 import { GamePlay } from "./GamePlay.js"
 
@@ -63,7 +63,7 @@ document.addEventListener(
 
 const checkCurrentTeamScores = () => {
     const currentTeamScores = getCurrentTeamScores()
-    const currentTeamScoreArray = Object.keys(currentTeamScores).map((key) => currentTeamScores[key])
+    const currentTeamScoreArray = getCurrentTeamScoresArray()
     let checkLength = ""
     if(currentTeamScoreArray.length > 2){
         checkLength = true
@@ -73,7 +73,7 @@ const checkCurrentTeamScores = () => {
 
     let checkUnique = ""
     console.log(currentTeamScoreArray)
-    if(currentTeamScoreArray[0]===currentTeamScoreArray[1] || currentTeamScoreArray[0]===currentTeamScoreArray[2] || currentTeamScoreArray[1] === currentTeamScoreArray[2]){
+    if(currentTeamScoreArray[0].teamId===currentTeamScoreArray[1].teamId || currentTeamScoreArray[0].teamId===currentTeamScoreArray[2].teamId || currentTeamScoreArray[1] === currentTeamScoreArray[2].teamId){
         checkUnique = false
     } else {
         checkUnique = true

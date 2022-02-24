@@ -32,6 +32,17 @@ const newId = () => {
 }
 
 export const setCurrentTeamScore = (dropdownId, teamObject) => {
-    currentTeamScores[dropdownId] = teamObject
-    console.log(currentTeamScores)
+    const newTeamScoreObject = {
+        teamId: teamObject.id,
+        teamName: teamObject.name,
+        teamScore: 0,
+    }
+    currentTeamScores[dropdownId] = newTeamScoreObject
+    document.dispatchEvent(new CustomEvent("teamSet"))
+}
+
+export const getCurrentTeamScoresArray = () => {
+    const teamScoresArray = Object.keys(currentTeamScores).map(key => currentTeamScores[key])
+    return teamScoresArray
+
 }
