@@ -5,7 +5,7 @@ const API = "http://localhost:8088"
 
 let appStateTeamScores = []
 
-let currentTeamScores = []
+let currentTeamScores = {}
 
 export const fetchTeamScores = () => {
     return fetch(`${API}/teamScores`)
@@ -31,12 +31,7 @@ const newId = () => {
     return newId
 }
 
-export const setCurrentTeamScore = (teamObject) => {
-    const newTeamScoreObject = {
-        teamId: teamObject.id,
-        teamName: teamObject.name,
-        teamScore: 0,
-        timeStamp: ""
-    }
-    currentTeamScores.push(newTeamScoreObject)
+export const setCurrentTeamScore = (dropdownId, teamObject) => {
+    currentTeamScores[dropdownId] = teamObject
+    console.log(currentTeamScores)
 }
