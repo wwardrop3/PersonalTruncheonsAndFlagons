@@ -283,6 +283,24 @@
       "teamName": "It's Working!",
       "teamScore": 18,
       "id": 34
+    },
+    {
+      "teamId": 1,
+      "teamName": "Goblins",
+      "teamScore": 14,
+      "id": 35
+    },
+    {
+      "teamId": 2,
+      "teamName": "Fairies",
+      "teamScore": null,
+      "id": 36
+    },
+    {
+      "teamId": 8,
+      "teamName": "It's Working!",
+      "teamScore": null,
+      "id": 37
     }
   ]
 }
