@@ -1,7 +1,7 @@
 //module produces html for gamplay
 
 import { CurrentGame } from "../game/CurrentGame.js"
-import { getCurrentTeamScores, getCurrentTeamScoresArray, sendGameScores, updateRoundScore } from "../game/gameAccess.js"
+import { getCurrentTeamScoresArray, resetCurrentTeamScores, sendGame, updateRoundScore } from "../game/gameAccess.js"
 import { GameSetUp } from "./GameSetUp.js"
 
 let roundNumber = 1
@@ -62,7 +62,11 @@ document.addEventListener(
                 
                 
                 //send current teamscores to teamscores database
-                sendGameScores()
+                const currentTeamScoreArray = getCurrentTeamScoresArray()
+                currentTeamScoreArray.forEach(currentTeamScore => {
+                    sendGame(currentTeamScore)
+                });
+                resetCurrentTeamScores()
             }
             
         }

@@ -1,4 +1,5 @@
 import { getTeams } from "../team/teamAccess.js"
+import { CurrentGame } from "./CurrentGame.js"
 
 
 const API = "http://localhost:8088"
@@ -59,25 +60,20 @@ export const updateRoundScore = (teamId, teamScore) => {
     });
 }
 
-export const sendGameScores = () => {
-    const currentTeamScoresArray = getCurrentTeamScoresArray()
-    currentTeamScoresArray.forEach(currentTeamScore => {
-        const sendGame = (teamScoreObject) => {
-            const fetchOptions = {
-                "method": "POST",
-                "headers": {
-                    "Content-Type": "application/json()"
-                },
-                "body": JSON.stringify(teamScoreObject) 
-            }
-            return fetch(`${API}/teamScores`, fetchOptions)
-            .then(response => response.json())
-        }
-        sendGame(currentTeamScore)
-        
+export const sendGame = (teamScoreObject) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json()"
+        },
+        body: JSON.stringify(teamScoreObject) 
+    }
+    return fetch(`${API}/teamScores`, fetchOptions)
+    .then(response => response.json())
+}
 
-    });
+export const resetCurrentTeamScores = () => {
     currentTeamScores = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))
     console.log(currentTeamScores)
-    
 }
