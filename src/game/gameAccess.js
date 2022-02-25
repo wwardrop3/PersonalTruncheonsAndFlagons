@@ -98,6 +98,4 @@ export const sendGame = (teamObject) => {
 
 export const resetCurrentTeamScores = () => {
     currentTeamScores = {}
-    document.dispatchEvent(new CustomEvent("stateChanged"))
-    document.querySelector("#leaderboard").innerHTML = LeaderBoard()
 }
