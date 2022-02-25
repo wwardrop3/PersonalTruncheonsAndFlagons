@@ -1,6 +1,7 @@
 //produces leaderboard HTML to display on the left side
 
 import { getPlayers } from "../player/playerAccess.js"
+import { getTeams } from "../team/teamAccess.js"
 import { getTeamScores } from "./gameAccess.js"
 import { leaderBoardTable } from "./LeaderboardTable.js"
 
