@@ -71,8 +71,7 @@ document.addEventListener(
                 });
                 
                 resetCurrentTeamScores()
-                document.querySelector("#leaderboard").innerHTML = LeaderBoard()
-                
+                document.dispatchEvent(new CustomEvent("stateChanged"))
                 
                 
                 
