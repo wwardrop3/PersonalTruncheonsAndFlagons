@@ -1,7 +1,7 @@
 import { getTeams } from "../team/teamAccess.js"
 
 
-const API = "http://localhost:8088"
+const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
 
 let appStateTeamScores = []
 
