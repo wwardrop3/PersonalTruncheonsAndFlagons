@@ -1,4 +1,4 @@
-const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
+import { API } from "../scripts/main.js"
 
 let appStatePlayers = []
 

@@ -58,6 +58,8 @@ document.addEventListener(
                 window.alert(`${sortedFinalTeamScores[0].teamName} wins with ${sortedFinalTeamScores[0].teamScore} points!`)
                 
                 
+                roundNumber = 1
+
                 //start new game (Gamesetup)
                 document.querySelector("#gamePlay").innerHTML = GameSetUp()
                 
@@ -67,9 +69,11 @@ document.addEventListener(
                 currentTeamScoreArray.forEach(currentTeamScore => {
                     sendGame(currentTeamScore)
                 });
+                
                 resetCurrentTeamScores()
-                document.querySelector("#leaderBoard").innerHTML = LeaderBoard()
-                roundNumber = 1
+                
+                
+                
             }
             
         }

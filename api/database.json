@@ -5,10 +5,6 @@
       "name": "Will's Team"
     },
     {
-      "id": 12,
-      "name": "nesteset"
-    },
-    {
       "id": 13,
       "name": "The Bills"
     },
@@ -17,16 +13,12 @@
       "name": "asdfasdf"
     },
     {
-      "id": 26,
-      "name": "dddddddd"
+      "id": 22,
+      "name": "The Cowboys"
     },
     {
-      "id": 28,
-      "name": "asdfasdfsdf"
-    },
-    {
-      "id": 29,
-      "name": "asdfsdfsdafssdfs"
+      "id": 23,
+      "name": "newest team"
     }
   ],
   "players": [
@@ -53,6 +45,12 @@
       "playerLastName": "Wardrop",
       "teamId": "13",
       "id": 14
+    },
+    {
+      "playerFirstName": "Will",
+      "playerLastName": "Wardrop",
+      "teamId": "22",
+      "id": 15
     }
   ],
   "teamScores": [
@@ -75,22 +73,10 @@
       "id": 68
     },
     {
-      "teamId": 12,
-      "teamName": "nesteset",
-      "teamScore": 0,
-      "id": 74
-    },
-    {
       "teamId": 9,
       "teamName": "Will's Team",
       "teamScore": 7,
       "id": 76
-    },
-    {
-      "teamId": 12,
-      "teamName": "nesteset",
-      "teamScore": 6,
-      "id": 77
     },
     {
       "teamId": 13,
@@ -117,12 +103,6 @@
       "id": 89
     },
     {
-      "teamId": 26,
-      "teamName": "dddddddd",
-      "teamScore": 0,
-      "id": 96
-    },
-    {
       "teamId": 9,
       "teamName": "Will's Team",
       "teamScore": 6,
@@ -135,16 +115,40 @@
       "id": 99
     },
     {
-      "teamId": 28,
-      "teamName": "asdfasdfsdf",
-      "teamScore": 0,
+      "teamId": 9,
+      "teamName": "Will's Team",
+      "teamScore": 16,
+      "id": 100
+    },
+    {
+      "teamId": 22,
+      "teamName": "The Cowboys",
+      "teamScore": 8,
       "id": 101
     },
     {
-      "teamId": 29,
-      "teamName": "asdfsdfsdafssdfs",
-      "teamScore": 0,
+      "teamId": 13,
+      "teamName": "The Bills",
+      "teamScore": 5,
       "id": 102
+    },
+    {
+      "teamId": 21,
+      "teamName": "asdfasdf",
+      "teamScore": 3,
+      "id": 103
+    },
+    {
+      "teamId": 22,
+      "teamName": "The Cowboys",
+      "teamScore": 9,
+      "id": 104
+    },
+    {
+      "teamId": 23,
+      "teamName": "newest team",
+      "teamScore": 6,
+      "id": 105
     }
   ]
 }

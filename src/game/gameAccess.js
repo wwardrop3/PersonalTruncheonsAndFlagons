@@ -1,7 +1,5 @@
-import { getTeams } from "../team/teamAccess.js"
-
-
-const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
+import { API } from "../scripts/main.js"
+import { LeaderBoard } from "./Leaderboard.js"
 
 let appStateTeamScores = []
 
@@ -94,11 +92,12 @@ export const sendGame = (teamObject) => {
         body: JSON.stringify(teamObject)
     }
     return fetch(`${API}/teamScores`, fetchOptions)
-    .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
+    .then(response => response.json())
+    
 }
 
 export const resetCurrentTeamScores = () => {
     currentTeamScores = {}
     document.dispatchEvent(new CustomEvent("stateChanged"))
-    console.log(currentTeamScores)
+    document.querySelector("#leaderboard").innerHTML = LeaderBoard()
 }

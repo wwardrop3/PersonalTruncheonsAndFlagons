@@ -17,7 +17,7 @@ export const siteHTML = () => {
             <p>
             <em>No game in progress...</em>
             </div>
-            <div id = "leaderBoard">
+            <div id = "leaderboard">
                 ${LeaderBoard()}
             </div>
         </section>

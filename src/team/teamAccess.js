@@ -1,7 +1,6 @@
 import { sendGame } from "../game/gameAccess.js"
 import { getPlayers } from "../player/playerAccess.js"
-
-const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
+import { API } from "../scripts/main.js"
 
 let appStateTeams = []
 let currentTeams = []

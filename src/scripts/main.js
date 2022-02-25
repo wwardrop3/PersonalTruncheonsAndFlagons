@@ -6,6 +6,10 @@ import { fetchTeams, setTeam } from "../team/teamAccess.js"
 import { GameSetUp } from "./GameSetUp.js"
 import { siteHTML } from "./TF.js"
 
+export const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
+
+// "https://personal-truncheons-api-vba5r.ondigitalocean.app"
+
 const render = () => {
     fetchTeamScores()
     .then(fetchPlayers)
