@@ -1,5 +1,4 @@
 import { getTeams } from "../team/teamAccess.js"
-import { CurrentGame } from "./CurrentGame.js"
 
 
 const API = "http://localhost:8088"
@@ -101,8 +100,4 @@ export const resetCurrentTeamScores = () => {
     currentTeamScores = {}
     document.dispatchEvent(new CustomEvent("stateChanged"))
     console.log(currentTeamScores)
-}
-
-const setTeamRoundScore = (teamId) => {
-    const foundTeamScore = currentTeamScores.find()
 }
