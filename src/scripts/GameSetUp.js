@@ -1,20 +1,20 @@
 ///this module will display the team selections to start the game
 
-import { addTeamScore, getCurrentGameScores, getTeamScores } from "../game/gameAccess.js"
+import { getCurrentGameScores, getCurrentTeamScores, getCurrentTeamScoresArray, getTeamScores, setCurrentTeamScore } from "../game/gameAccess.js"
 import { getTeams } from "../team/teamAccess.js"
 import { GamePlay } from "./GamePlay.js"
 
-let tempObject = {
-    "dropdownId--1": 0,
-    "dropdownId--2": 0,
-    "dropdownId--3": 0,
-}
+// let tempObject = {
+//     "dropdownId--1": 0,
+//     "dropdownId--2": 0,
+//     "dropdownId--3": 0,
+// }
 
 document.addEventListener(
     "click",
     (clickEvent) => {
         if(clickEvent.target.id === "startGame"){
-            document.querySelector(".gamePlay").innerHTML = GameSetUp()
+            document.querySelector("#gamePlay").innerHTML = GameSetUp()
     }}
 )
 
@@ -60,79 +60,94 @@ document.addEventListener(
             }
             else{
                 
-                console.log("not yet")
                 return false
             }
-            const [,dropdownId] = changeEvent.target.id.split("--")
-            //this locates identifies the dropdown values in the temp object and resets value
-            tempObject[changeEvent.target.id] = parseInt(changeEvent.target.value)
-            const unique = checkUnique(tempObject)
-            if(unique === true){
-                document.dispatchEvent(new CustomEvent("uniqueTeamsSelected"))
-            } 
+            // const [,dropdownId] = changeEvent.target.id.split("--")
+            // //this locates identifies the dropdown values in the temp object and resets value
+            // tempObject[changeEvent.target.id] = parseInt(changeEvent.target.value)
+            // const unique = checkUnique(tempObject)
+            // if(unique === true){
+            //     document.dispatchEvent(new CustomEvent("uniqueTeamsSelected"))
+            // } 
 
         }
     }
 )
 
 const checkCurrentTeamScores = () => {
-    const currentTeamScores = getCurrentTeamScores()
     const currentTeamScoreArray = getCurrentTeamScoresArray()
-    let checkLength = ""
-    if(currentTeamScoreArray.length > 2){
-        checkLength = true
-    } else {
-        checkLength = false
-    }
+    // let checkLength = ""
+    // if(currentTeamScoreArray.length > 2){
+    //     checkLength = true
+    // } else {
+    //     checkLength = false
+    // }
 
     let checkUnique = ""
+    let checkZero = ""
     console.log(currentTeamScoreArray)
-    if(currentTeamScoreArray[0] === currentTeamScoreArray[1] || currentTeamScoreArray[0]===currentTeamScoreArray[2] || currentTeamScoreArray[1] === currentTeamScoreArray[2]){
+    if(currentTeamScoreArray[0].teamId === currentTeamScoreArray[1].teamId || currentTeamScoreArray[0].teamId===currentTeamScoreArray[2].teamId || currentTeamScoreArray[1].teamId === currentTeamScoreArray[2].teamId){
         checkUnique = false
     } else {
         checkUnique = true
     }
-
-
-    if(checkLength === true && checkUnique === true){
+    
+    currentTeamScoreArray.forEach(currentTeamScore => {
+        if(currentTeamScore.teamId === 0){
+            checkZero = true
+        } else {
+            checkZero = false
+        }
+        
+    })
+    
+    if(checkUnique === true && checkZero === false){
         return true
     } else {
         return false
     }
+;
+
+    // if(checkLength === true && checkUnique === true){
+    //     return true
+    // } else {
+    //     return false
+    // }
+
+
 }
 
 
-const checkUnique = (tempObject) => {
-    let tempArray = [tempObject["dropdownId--1"],tempObject["dropdownId--2"],tempObject["dropdownId--3"]]
-    const checkZero = tempArray.includes(0)
-    const checkSame = () => {
-        if(tempArray[0] === tempArray[1] || tempArray[0]===tempArray[2] || tempArray[1] === tempArray[2]){
-            return true
-        } else {
-            return false
-        }}
-    const duplicate = checkSame()
+// const checkUnique = (tempObject) => {
+//     let tempArray = [tempObject["dropdownId--1"],tempObject["dropdownId--2"],tempObject["dropdownId--3"]]
+//     const checkZero = tempArray.includes(0)
+//     const checkSame = () => {
+//         if(tempArray[0] === tempArray[1] || tempArray[0]===tempArray[2] || tempArray[1] === tempArray[2]){
+//             return true
+//         } else {
+//             return false
+//         }}
+//     const duplicate = checkSame()
 
-    if(duplicate === false && checkZero === false){
-        return true
-    }
-    }
+//     if(duplicate === false && checkZero === false){
+//         return true
+//     }
+//     }
 
 
 
-document.addEventListener(
-    "uniqueTeamsSelected",
-    (customEvent) => {
-        console.log("unique teams selected")
-        let teamIdArray = Object.keys(tempObject).map(key => {
-            return tempObject[key]
-        })
-        console.log(teamIdArray)
-        for(const teamId of teamIdArray){
-            addTeamScore(teamId)
-        }
-        console.log(getCurrentGameScores())
-        document.querySelector(".gamePlay").innerHTML = GamePlay()
+// document.addEventListener(
+//     "uniqueTeamsSelected",
+//     (customEvent) => {
+//         console.log("unique teams selected")
+//         let teamIdArray = Object.keys(tempObject).map(key => {
+//             return tempObject[key]
+//         })
+//         console.log(teamIdArray)
+//         for(const teamId of teamIdArray){
+//             addTeamScore(teamId)
+//         }
+//         document.querySelector(".gamePlay").innerHTML = GamePlay()
         
-    }
-)
+//     }
+

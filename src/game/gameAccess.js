@@ -5,7 +5,23 @@ const API = "http://localhost:8088"
 
 let appStateTeamScores = []
 
-let currentTeamScores = {}
+let currentTeamScores = {
+    "dropdownId--1":{
+        teamId: 0,
+        teamName: "Team 1",
+        teamScore: 0,
+        },
+    "dropdownId--2":{
+        teamId: 0,
+        teamName: "Team 2",
+        teamScore: 0,
+        },
+    "dropdownId--3":{
+        teamId: 0,
+        teamName: "Team 3",
+        teamScore: 0,
+    }
+}
 
 export const fetchTeamScores = () => {
     return fetch(`${API}/teamScores`)
@@ -30,24 +46,6 @@ export const getCurrentGameScores = () => {
     return currentTeamScores
 }
 
-
-
-
-export const addTeamScore = (teamId) => {
-    const teams = getTeams()
-    const foundTeam = teams.find(team => {
-        return parseInt(teamId) === team.id
-    })
-    const newTeamScore = {
-        id: newId(),
-        teamId: foundTeam.id,
-        teamName: foundTeam.name,
-        gameScore: 0,
-        timestamp: ""
-    }
-    currentGameScores.push(newTeamScore)
-}
-
 const newId = () => {
     const lastIndex = appStateTeamScores.length -1
     const newId = appStateTeamScores[lastIndex].id +1
@@ -55,19 +53,22 @@ const newId = () => {
 }
 
 export const setCurrentTeamScore = (dropdownId, teamObject) => {
+    
     const newTeamScoreObject = {
         teamId: teamObject.id,
         teamName: teamObject.name,
         teamScore: 0,
     }
     
-    currentTeamScores[dropdownId] = newTeamScoreObject
+    currentTeamScores[dropdownId] = newTeamScoreObject //uses dropdown id to match current team score object to passed in object
     document.dispatchEvent(new CustomEvent("teamSet"))
+
     
 }
 
 export const getCurrentTeamScoresArray = () => {
     const teamScoresArray = Object.keys(currentTeamScores).map(key => currentTeamScores[key])
+    console.log(currentTeamScores)
     return teamScoresArray
 
 }

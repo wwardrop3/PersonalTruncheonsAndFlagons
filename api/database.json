@@ -5,12 +5,16 @@
       "name": "Bills"
     },
     {
-      "id": 6,
-      "name": "Apples"
-    },
-    {
       "id": 9,
       "name": "Will's Team"
+    },
+    {
+      "id": 10,
+      "name": "The Cowboys"
+    },
+    {
+      "id": 11,
+      "name": "The Titans"
     }
   ],
   "players": [
@@ -19,12 +23,6 @@
       "playerLastName": "asdf",
       "teamId": "4",
       "id": 2
-    },
-    {
-      "playerFirstName": "asdf",
-      "playerLastName": "asdf",
-      "teamId": "6",
-      "id": 4
     },
     {
       "playerFirstName": "Will",
@@ -57,10 +55,16 @@
       "id": 9
     },
     {
-      "playerFirstName": "asdf",
-      "playerLastName": "asdf",
-      "teamId": "6",
-      "id": 10
+      "playerFirstName": "Will",
+      "playerLastName": "Wardrop",
+      "teamId": "10",
+      "id": 11
+    },
+    {
+      "playerFirstName": "asa",
+      "playerLastName": "sdfs",
+      "teamId": "11",
+      "id": 12
     }
   ],
   "teamScores": [
@@ -89,12 +93,6 @@
       "id": 31
     },
     {
-      "teamId": 6,
-      "teamName": "Apples",
-      "teamScore": 0,
-      "id": 59
-    },
-    {
       "teamId": 9,
       "teamName": "Will's Team",
       "teamScore": 0,
@@ -113,10 +111,46 @@
       "id": 64
     },
     {
-      "teamId": 6,
-      "teamName": "Apples",
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 29,
+      "id": 66
+    },
+    {
+      "teamId": 9,
+      "teamName": "Will's Team",
+      "teamScore": 11,
+      "id": 68
+    },
+    {
+      "teamId": 10,
+      "teamName": "The Cowboys",
+      "teamScore": 0,
+      "id": 69
+    },
+    {
+      "teamId": 11,
+      "teamName": "The Titans",
+      "teamScore": 0,
+      "id": 70
+    },
+    {
+      "teamId": 11,
+      "teamName": "The Titans",
+      "teamScore": 16,
+      "id": 71
+    },
+    {
+      "teamId": 10,
+      "teamName": "The Cowboys",
       "teamScore": 9,
-      "id": 65
+      "id": 72
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 36,
+      "id": 73
     }
   ]
 }
