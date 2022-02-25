@@ -101,7 +101,3 @@ export const resetCurrentTeamScores = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
     console.log(currentTeamScores)
 }
-
-const setTeamRoundScore = (teamId) => {
-    const foundTeamScore = currentTeamScores.find()
-}
