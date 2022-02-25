@@ -2,6 +2,7 @@
 
 import { CurrentGame } from "../game/CurrentGame.js"
 import { getCurrentTeamScoresArray, resetCurrentTeamScores, sendGame, updateRoundScore } from "../game/gameAccess.js"
+import { LeaderBoard } from "../game/Leaderboard.js"
 import { GameSetUp } from "./GameSetUp.js"
 
 let roundNumber = 1
@@ -67,6 +68,7 @@ document.addEventListener(
                     sendGame(currentTeamScore)
                 });
                 resetCurrentTeamScores()
+                document.querySelector("#leaderBoard").innerHTML = LeaderBoard()
                 roundNumber = 1
             }
             
