@@ -8,7 +8,7 @@ let appStateTeamScores = []
 
 let currentTeamScores = {}
 
-export const fetchTeamScores = () => {
+export const fetchGames = () => {
     return fetch(`${API}/teamScores`)
     .then(response => response.json())
     .then(
@@ -25,6 +25,28 @@ export const getCurrentTeamScores = () => {
     return currentTeamScores
 }
 
+
+export const getCurrentGameScores = () => {
+    return currentTeamScores
+}
+
+
+
+
+export const addTeamScore = (teamId) => {
+    const teams = getTeams()
+    const foundTeam = teams.find(team => {
+        return parseInt(teamId) === team.id
+    })
+    const newTeamScore = {
+        id: newId(),
+        teamId: foundTeam.id,
+        teamName: foundTeam.name,
+        gameScore: 0,
+        timestamp: ""
+    }
+    currentGameScores.push(newTeamScore)
+}
 
 const newId = () => {
     const lastIndex = appStateTeamScores.length -1
@@ -78,4 +100,8 @@ export const resetCurrentTeamScores = () => {
     currentTeamScores = {}
     document.dispatchEvent(new CustomEvent("stateChanged"))
     console.log(currentTeamScores)
+}
+
+const setTeamRoundScore = (teamId) => {
+    const foundTeamScore = currentTeamScores.find()
 }
