@@ -8,7 +8,7 @@ let appStateTeamScores = []
 
 let currentTeamScores = {}
 
-export const fetchGames = () => {
+export const fetchTeamScores = () => {
     return fetch(`${API}/teamScores`)
     .then(response => response.json())
     .then(
@@ -24,6 +24,7 @@ export const getTeamScores = () => {
 export const getCurrentTeamScores = () => {
     return currentTeamScores
 }
+
 
 
 export const getCurrentGameScores = () => {

@@ -9,14 +9,6 @@
       "name": "Apples"
     },
     {
-      "id": 7,
-      "name": "Fairies"
-    },
-    {
-      "id": 8,
-      "name": "Goblins"
-    },
-    {
       "id": 9,
       "name": "Will's Team"
     }
@@ -89,18 +81,6 @@
       "teamName": "Apples",
       "teamScore": 0,
       "id": 59
-    },
-    {
-      "teamId": 7,
-      "teamName": "Fairies",
-      "teamScore": 0,
-      "id": 60
-    },
-    {
-      "teamId": 8,
-      "teamName": "Goblins",
-      "teamScore": 0,
-      "id": 61
     },
     {
       "teamId": 9,
