@@ -1,5 +1,4 @@
 import { getTeams } from "../team/teamAccess.js"
-import { CurrentGame } from "./CurrentGame.js"
 
 
 const API = "http://localhost:8088"
