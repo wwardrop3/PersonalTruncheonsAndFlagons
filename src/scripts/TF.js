@@ -1,35 +1,33 @@
-import { GameSetUp } from "./GameSetUp.js"
+import { LeaderBoard } from "../game/Leaderboard.js"
+import { Player } from "../player/Player.js"
+import { Team } from "../team/Team.js"
 
 export const siteHTML = () => {
     return `
-    <article class = "mainContent"
-        <section class = "data">
-
-            <div class = "teamInput">
-                <h2>Add Team</h2>
-
+    <article id = "mainContent">
+        <section id = "dataContainer">
+            <div id = "addTeam">
+                ${Team()}
             </div>
-            <div class = "playerInput">
-                <h2>Add Player</h2>
-
+            <div id = "newPlayer">
+                ${Player()}
             </div>
-            <div class = "currentGame">
-                <h2>Current Game</h2>
-
+            <div id = "currentGame">
+            <h2>Current Game</h2>
+            <p>
+            <em>No game in progress...</em>
             </div>
-            <div class = "leaderboard">
-                <h2>Leaderboard</h2>
-
+            <div id = "leaderBoard">
+            ${LeaderBoard()}
             </div>
         </section>
-
-        <section class = "gameArea">
+        <section id = "gamePlayContainer">
             <h1>Truncheons and Flagons</h1>
-            <section class = "gamePlay">
+            <div id = "gamePlay">
                 <button id = "startGame">Start Game</button>
-            </section>
+            </div>
         </section>
-    </article>`
+    `
 }
 
 

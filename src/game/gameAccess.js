@@ -1,29 +1,34 @@
 import { getTeams } from "../team/teamAccess.js"
+import { CurrentGame } from "./CurrentGame.js"
 
 
 const API = "http://localhost:8088"
 
 let appStateTeamScores = []
 
-let currentGameScores = []
+let currentTeamScores = {}
 
-let currentRoundScores = []
-
-export const fetchGames = () => {
+export const fetchTeamScores = () => {
     return fetch(`${API}/teamScores`)
     .then(response => response.json())
     .then(
-        (response) => appStateTeamScores = response
+        (response) => {appStateTeamScores = response
+        return response}
     )
 }
 
 export const getTeamScores = () => {
-    const listArray = appStateTeamScores.map(teamScore => ({...teamScore}))
-    return listArray
+    return appStateTeamScores
 }
 
+export const getCurrentTeamScores = () => {
+    return currentTeamScores
+}
+
+
+
 export const getCurrentGameScores = () => {
-    return currentGameScores
+    return currentTeamScores
 }
 
 
@@ -50,7 +55,54 @@ const newId = () => {
     return newId
 }
 
+export const setCurrentTeamScore = (dropdownId, teamObject) => {
+    const newTeamScoreObject = {
+        teamId: teamObject.id,
+        teamName: teamObject.name,
+        teamScore: 0,
+    }
+    
+    currentTeamScores[dropdownId] = newTeamScoreObject
+    document.dispatchEvent(new CustomEvent("teamSet"))
+    
+}
+
+export const getCurrentTeamScoresArray = () => {
+    const teamScoresArray = Object.keys(currentTeamScores).map(key => currentTeamScores[key])
+    return teamScoresArray
+
+}
+
+export const updateRoundScore = (teamId, teamScore) => {
+    const currentScoresArray = getCurrentTeamScoresArray()
+    currentScoresArray.forEach(currentTeamScore => {
+        if(currentTeamScore.teamId === teamId){
+            currentTeamScore.teamScore += parseInt(teamScore)
+        }
+        
+    });
+}
+
+
+export const sendGame = (teamObject) => {
+    const fetchOptions = {
+        //POST tells the API that you want to create something new
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(teamObject)
+    }
+    return fetch(`${API}/teamScores`, fetchOptions)
+    .then(response => response.json()) //Why doesnt this have a second parameter like the fetch method at the bottom???
+}
+
+export const resetCurrentTeamScores = () => {
+    currentTeamScores = {}
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+    console.log(currentTeamScores)
+}
 
 const setTeamRoundScore = (teamId) => {
-    const foundTeamScore = currentGameScores.find()
+    const foundTeamScore = currentTeamScores.find()
 }

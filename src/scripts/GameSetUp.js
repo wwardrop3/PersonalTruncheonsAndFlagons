@@ -39,12 +39,30 @@ export const GameSetUp = () => {
 }
 
 
+//event listener that listens for id that starts with "dropdownId"
 
 //once a dropdown option is changed, check to see if the team has already been chosen or if options have yet to be selected
 document.addEventListener(
     "change",
     (changeEvent) => {
         if(changeEvent.target.id.startsWith("dropdownId")){
+            //if the dropdown is selected, find the object of that teamId
+            const teams = getTeams()
+            const foundTeam = teams.find(team => {
+                return parseInt(changeEvent.target.value) === team.id
+            })
+            //set the team object to the current teamScores array with the property name of the dropdownId
+            setCurrentTeamScore(changeEvent.target.id, foundTeam)
+            //check the currentTeamScores to see if 1) there are 3 properties in the object and 2)all of the property objects are unique
+            const check = checkCurrentTeamScores()
+            if(check === true){
+                document.querySelector("#gamePlay").innerHTML = GamePlay()
+            }
+            else{
+                
+                console.log("not yet")
+                return false
+            }
             const [,dropdownId] = changeEvent.target.id.split("--")
             //this locates identifies the dropdown values in the temp object and resets value
             tempObject[changeEvent.target.id] = parseInt(changeEvent.target.value)
@@ -56,6 +74,33 @@ document.addEventListener(
         }
     }
 )
+
+const checkCurrentTeamScores = () => {
+    const currentTeamScores = getCurrentTeamScores()
+    const currentTeamScoreArray = getCurrentTeamScoresArray()
+    let checkLength = ""
+    if(currentTeamScoreArray.length > 2){
+        checkLength = true
+    } else {
+        checkLength = false
+    }
+
+    let checkUnique = ""
+    console.log(currentTeamScoreArray)
+    if(currentTeamScoreArray[0] === currentTeamScoreArray[1] || currentTeamScoreArray[0]===currentTeamScoreArray[2] || currentTeamScoreArray[1] === currentTeamScoreArray[2]){
+        checkUnique = false
+    } else {
+        checkUnique = true
+    }
+
+
+    if(checkLength === true && checkUnique === true){
+        return true
+    } else {
+        return false
+    }
+}
+
 
 const checkUnique = (tempObject) => {
     let tempArray = [tempObject["dropdownId--1"],tempObject["dropdownId--2"],tempObject["dropdownId--3"]]

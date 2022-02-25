@@ -1,65 +1,110 @@
 {
-    "teams": [
-        {
-            "id": 1,
-            "name": "Goblins"
-        },
-        {
-            "id": 2,
-            "name": "Fairies"
-        },
-        {
-            "id": 3,
-            "name": "Knights"
-        },
-        {
-            "id": 4,
-            "name": "Bills"
-        },
-        {
-            "id": 5,
-            "name": "Bears"
-        }
-    ],
-    "players": [
-        {
-            "id": 1,
-            "name": "John",
-            "teamId": 1
-        },
-        {
-            "id": 2,
-            "name": "Will",
-            "teamId": 3
-        },
-        {
-            "id": 3,
-            "name": "Carl",
-            "teamId": 2
-        },
-        {
-            "id": 4,
-            "name": "John",
-            "teamId": 2
-        },
-        {
-            "id": 5,
-            "name": "Bill",
-            "teamId": 2
-        },
-        {
-            "id": 6,
-            "name": "Mark",
-            "teamId": 3
-        }
-    ],
-    "teamScores": [
-        {
-            "id": 1,
-            "teamId": 2,
-            "gameScore": 12,
-            "timestamp": ""
-
-        }
-    ]
+  "teams": [
+    {
+      "id": 4,
+      "name": "Bills"
+    },
+    {
+      "id": 6,
+      "name": "Apples"
+    },
+    {
+      "id": 9,
+      "name": "Will's Team"
+    }
+  ],
+  "players": [
+    {
+      "playerFirstName": "asdf",
+      "playerLastName": "asdf",
+      "teamId": "4",
+      "id": 2
+    },
+    {
+      "playerFirstName": "asdf",
+      "playerLastName": "asdf",
+      "teamId": "6",
+      "id": 4
+    },
+    {
+      "playerFirstName": "Will",
+      "playerLastName": "Wardrop",
+      "teamId": "9",
+      "id": 5
+    },
+    {
+      "playerFirstName": "Lin",
+      "playerLastName": "Cao",
+      "teamId": "9",
+      "id": 6
+    },
+    {
+      "playerFirstName": "Rando",
+      "playerLastName": "Person",
+      "teamId": "9",
+      "id": 7
+    },
+    {
+      "playerFirstName": "should",
+      "playerLastName": "load to bills team",
+      "teamId": "4",
+      "id": 8
+    }
+  ],
+  "teamScores": [
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 9,
+      "id": 3
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 18,
+      "id": 24
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 6,
+      "id": 26
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 36,
+      "id": 31
+    },
+    {
+      "teamId": 6,
+      "teamName": "Apples",
+      "teamScore": 0,
+      "id": 59
+    },
+    {
+      "teamId": 9,
+      "teamName": "Will's Team",
+      "teamScore": 0,
+      "id": 62
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 3,
+      "id": 63
+    },
+    {
+      "teamId": 9,
+      "teamName": "Will's Team",
+      "teamScore": 6,
+      "id": 64
+    },
+    {
+      "teamId": 6,
+      "teamName": "Apples",
+      "teamScore": 9,
+      "id": 65
+    }
+  ]
 }
