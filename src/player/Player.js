@@ -23,7 +23,9 @@ export const Player = () => {
 
 const selectTeam = () => {
     const teams = getTeams()
-    let html = `<select id = "selectPlayerTeam">
+    let html = `
+    <label for="selectTeam">Select Team</label>
+    <select name = "selectTeam" id = "selectPlayerTeam">
     <option value = "0">Select Team...</option>`
     const listArray = teams.map(team => {
         return `<option value = "${team.id}">${team.name}</option>`

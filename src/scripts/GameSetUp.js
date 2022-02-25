@@ -106,48 +106,5 @@ const checkCurrentTeamScores = () => {
     } else {
         return false
     }
-;
-
-    // if(checkLength === true && checkUnique === true){
-    //     return true
-    // } else {
-    //     return false
-    // }
-
-
 }
-
-
-// const checkUnique = (tempObject) => {
-//     let tempArray = [tempObject["dropdownId--1"],tempObject["dropdownId--2"],tempObject["dropdownId--3"]]
-//     const checkZero = tempArray.includes(0)
-//     const checkSame = () => {
-//         if(tempArray[0] === tempArray[1] || tempArray[0]===tempArray[2] || tempArray[1] === tempArray[2]){
-//             return true
-//         } else {
-//             return false
-//         }}
-//     const duplicate = checkSame()
-
-//     if(duplicate === false && checkZero === false){
-//         return true
-//     }
-//     }
-
-
-
-// document.addEventListener(
-//     "uniqueTeamsSelected",
-//     (customEvent) => {
-//         console.log("unique teams selected")
-//         let teamIdArray = Object.keys(tempObject).map(key => {
-//             return tempObject[key]
-//         })
-//         console.log(teamIdArray)
-//         for(const teamId of teamIdArray){
-//             addTeamScore(teamId)
-//         }
-//         document.querySelector(".gamePlay").innerHTML = GamePlay()
-        
-//     }
 

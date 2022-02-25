@@ -1,9 +1,17 @@
 //produces leaderboard HTML to display on the left side
 
 import { getPlayers } from "../player/playerAccess.js"
-import { deleteLeaderboardTeam, getTeams } from "../team/teamAccess.js"
 import { getTeamScores } from "./gameAccess.js"
+import { leaderBoardTable } from "./LeaderboardTable.js"
 
+
+export const findPlayerCount = (teamId) => {
+        const players = getPlayers()
+        const foundPlayers = players.filter(player => {
+            return parseInt(player.teamId) === parseInt(teamId)
+        }) 
+        return foundPlayers
+    }
 
 export const LeaderBoard = () => {
     const teamScores = getTeamScores()
@@ -26,37 +34,35 @@ export const LeaderBoard = () => {
         }
     )
     
-    const findPlayerCount = (teamId) => {
-        const foundPlayers = players.filter(player => {
-            return parseInt(player.teamId) === teamId
-        }) 
-        console.log(foundPlayers)
-        return foundPlayers
-    }
     const sortedTotalTeamScores = teamTotalScores.sort((a,b) => b.teamScore - a.teamScore)
-    let html = `<h2>Leaderboard</h2><ol>`
-    const sortedTotalTeamScoresArray = sortedTotalTeamScores.map(sortedTotalTeamScore => {
-        const foundPlayerNumber = findPlayerCount(sortedTotalTeamScore.teamId)
-        return `<li>${sortedTotalTeamScore.teamName} |  Players: ${foundPlayerNumber.length} | ${sortedTotalTeamScore.teamScore}
-        <button id = "deleteTeam--${sortedTotalTeamScore.teamId}">Delete Team</button>
-        </li>`
-    })
-    html+=sortedTotalTeamScoresArray.join("")
-    html+=`</ol>`
-    return html
-
+    console.log(sortedTotalTeamScores)
+    const leaderboard = leaderBoardTable(sortedTotalTeamScores)
+    return leaderboard
 }
 
+    // let html = `<h2>Leaderboard</h2><ol>`
+    // const sortedTotalTeamScoresArray = sortedTotalTeamScores.map(sortedTotalTeamScore => {
+    //     const foundPlayerNumber = findPlayerCount(sortedTotalTeamScore.teamId)
+    //     return `<li>${sortedTotalTeamScore.teamName} |  Players: ${foundPlayerNumber.length} | ${sortedTotalTeamScore.teamScore}
+    //     <button id = "deleteTeam--${sortedTotalTeamScore.teamId}">Delete Team</button>
+    //     </li>`
+    // })
+    // html+=sortedTotalTeamScoresArray.join("")
+    // html+=`</ol>`
+    // return html
 
 
-document.addEventListener(
-    "click",
-    (clickEvent) => {
-        if(clickEvent.target.id.startsWith("deleteTeam")){
-            const [,teamId] = clickEvent.target.id.split("--")
-            deleteLeaderboardTeam(teamId)
-            document.dispatchEvent(new CustomEvent("stateChanged"))
-        }
+
+
+
+// document.addEventListener(
+//     "click",
+//     (clickEvent) => {
+//         if(clickEvent.target.id.startsWith("deleteTeam")){
+//             const [,teamId] = clickEvent.target.id.split("--")
+//             deleteLeaderboardTeam(teamId)
+//             document.dispatchEvent(new CustomEvent("stateChanged"))
+//         }
         
-    }
-)
+//     }
+// )
