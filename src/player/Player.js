@@ -1,7 +1,7 @@
 //module produces html form for adding a player
 
 import { getTeams } from "../team/teamAccess.js"
-import { setPlayer } from "./playerAccess.js"
+import { getPlayers, setPlayer } from "./playerAccess.js"
 
 
 export const Player = () => {
@@ -40,18 +40,42 @@ document.addEventListener(
     "click",
     (clickEvent) => {
         if(clickEvent.target.id === "addNewPlayer"){
-            const playerTeam = document.querySelector("#selectPlayerTeam").value
+            const playerTeamId = document.querySelector("#selectPlayerTeam").value
             const playerFirstName = document.querySelector("#addFirstName").value
             const playerLastName = document.querySelector("#addLastName").value
             
             const newPlayerObject = {
                 playerFirstName: playerFirstName,
                 playerLastName: playerLastName,
-                playerTeam: playerTeam
+                teamId: playerTeamId
             }
-            setPlayer(newPlayerObject)
-            document.dispatchEvent(new CustomEvent("stateChanged"))
+
+            const playerCount = checkPlayerCount(newPlayerObject.teamId)
+
+            if(playerCount === true) {
+                setPlayer(newPlayerObject)
+                document.dispatchEvent(new CustomEvent("stateChanged"))
+            } else {
+                window.alert("Team is full.  Select another team.")
+                document.querySelector("#selectPlayerTeam").value = 0
+            }
+            
         }
         }
        
 )
+
+const checkPlayerCount = (teamId) => {
+    const teams = getTeams()
+    const players = getPlayers()
+
+    const teamPlayers = players.filter(player => {
+        return player.teamId === teamId
+    })
+    if(teamPlayers.length < 3){
+        return true
+    } else {
+        console.log(teamPlayers)
+        return false
+    }
+}

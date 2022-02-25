@@ -1,12 +1,14 @@
 //produces leaderboard HTML to display on the left side
 
-import { getTeams } from "../team/teamAccess.js"
+import { getPlayers } from "../player/playerAccess.js"
+import { deleteLeaderboardTeam, getTeams } from "../team/teamAccess.js"
 import { getTeamScores } from "./gameAccess.js"
 
 
 export const LeaderBoard = () => {
     const teamScores = getTeamScores()
     const teams = getTeams()
+    const players = getPlayers()
     const teamTotalScores = teams.map(team => {
         const allTeamScores = teamScores.filter(teamScore => {
             return teamScore.teamId === team.id
@@ -23,10 +25,21 @@ export const LeaderBoard = () => {
         return leaderBoardObject
         }
     )
+    
+    const findPlayerCount = (teamId) => {
+        const foundPlayers = players.filter(player => {
+            return parseInt(player.teamId) === teamId
+        }) 
+        console.log(foundPlayers)
+        return foundPlayers
+    }
     const sortedTotalTeamScores = teamTotalScores.sort((a,b) => b.teamScore - a.teamScore)
     let html = `<h2>Leaderboard</h2><ol>`
     const sortedTotalTeamScoresArray = sortedTotalTeamScores.map(sortedTotalTeamScore => {
-        return `<li>${sortedTotalTeamScore.teamName} | ${sortedTotalTeamScore.teamScore}</li>`
+        const foundPlayerNumber = findPlayerCount(sortedTotalTeamScore.teamId)
+        return `<li>${sortedTotalTeamScore.teamName} |  Players: ${foundPlayerNumber.length} | ${sortedTotalTeamScore.teamScore}
+        <button id = "deleteTeam--${sortedTotalTeamScore.teamId}">Delete Team</button>
+        </li>`
     })
     html+=sortedTotalTeamScoresArray.join("")
     html+=`</ol>`
@@ -36,62 +49,14 @@ export const LeaderBoard = () => {
 
 
 
-   
-// //import function from scoreList
-// import { TeamRows } from "./score/ScoreList.js";
-
-// // function for leaderboard
-// export const Leaderboard = () => {
-//     //interpolate html by invoking scoreList function
-//     //return html
-//     // set up table properly for scroll ability
-//     return `
-// <h2>Leaderboard</h2>
-// <table id="leaderboardTable">
-//     <thead>
-//         <tr class="leaderboardHeaders">
-//             <th scope="col" class="leaderboardHeader">Name</th>
-//             <th scope="col" class="leaderboardHeaderPlayer">Players</th>
-//             <th scope="col" class="leaderboardHeaderScore">Score</th>
-//         </tr>
-//     </thead>
-//     <tbody>
-//         <tr>
-//             <td colspan="3">
-//                 <div class="teamRows">
-//                     <table>
-//                         <tbody>
-//                             ${TeamRows()}
-//                         </tbody>
-//                     </table>
-//                 </div>
-//             </td>
-//         </tr>
-//     </tbody>
-// </table>
-// `
-// }
-
-// export const TeamRows = () => {
-//     const teams = getTeams()
-//     //make a copy of teams array and save their totalScore as a property
-//     const totalTeamScores = teams.map((team) => ({
-//         ...team,
-//         totalScore: totalScore(team.id)
-//     }))
-
-//     //sort all teams by their totalScore property so the leaderboard is displayed in the right order
-//     const sortedTeams = totalTeamScores.sort((team1, team2) => team2.totalScore - team1.totalScore)
-//     let html = ""
-//     for (const team of sortedTeams) {
-//         //interpolate string for each team that displays team name, totalScore, and playerCount
-//         html += `<tr class="leaderboardRows">
-//                     <td class="leaderboardTeam">${team.teamName}</td>
-//                     <td class="playerCount">${PlayerCount(team.id)}</td>
-//                     <td class="score">${totalScore(team.id)}</td>
-//                 </tr>`
-//     }
-    
-//     //return html
-//     return html
-// }
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        if(clickEvent.target.id.startsWith("deleteTeam")){
+            const [,teamId] = clickEvent.target.id.split("--")
+            deleteLeaderboardTeam(teamId)
+            document.dispatchEvent(new CustomEvent("stateChanged"))
+        }
+        
+    }
+)

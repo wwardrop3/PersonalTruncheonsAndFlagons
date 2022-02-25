@@ -1,7 +1,8 @@
 import { CurrentGame } from "../game/CurrentGame.js"
 import { fetchTeamScores } from "../game/gameAccess.js"
 import { fetchPlayers } from "../player/playerAccess.js"
-import { fetchTeams } from "../team/teamAccess.js"
+import { teamEventListener } from "../team/Team.js"
+import { fetchTeams, setTeam } from "../team/teamAccess.js"
 import { GameSetUp } from "./GameSetUp.js"
 import { siteHTML } from "./TF.js"
 
@@ -10,6 +11,8 @@ const render = () => {
     .then(fetchPlayers)
     .then(fetchTeams)
     .then(() => document.querySelector("#mainContainer").innerHTML = siteHTML())
+    .then(teamEventListener)
+    
 }
 
 render()
@@ -36,3 +39,4 @@ document.addEventListener(
         document.querySelector("#currentGame").innerHTML = CurrentGame()
     }
 )
+

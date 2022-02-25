@@ -1,4 +1,5 @@
 import { sendGame } from "../game/gameAccess.js"
+import { getPlayers } from "../player/playerAccess.js"
 
 const API = "http://localhost:8088"
 
@@ -50,6 +51,7 @@ export const sendTeam = (teamObject) => {
     }
     return fetch(`${API}/teams`, fetchOptions)
     .then(response => response.json())
+    .then(document.dispatchEvent(new CustomEvent("stateChanged")))
 }
 
 export const sendInitialTeamScore = (teamObject) => {
@@ -59,5 +61,26 @@ export const sendInitialTeamScore = (teamObject) => {
         teamScore: 0
     }
     sendGame(newInitialTeamScore)
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+export const deleteLeaderboardTeam = (teamId) => {
+    const players = getPlayers()
+    const foundPlayersArray = players.filter(player => {
+        return player.teamId === teamId
+    })
+    foundPlayersArray.forEach(foundPlayer => {
+        deletePlayer(foundPlayer.id)
+        console.log(`Deleted player ${foundPlayer.name}`)
+    });
+    deleteTeam(teamId)
+}
+
+export const deletePlayer = (playerId) => {
+    return fetch(`${API}/players/${playerId}`, {method: "DELETE"})
+}
+
+export const deleteTeam = (teamId) => {
+    return fetch(`${API}/teams/${teamId}`, {method: "DELETE"})
+    
+    }

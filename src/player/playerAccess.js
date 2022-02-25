@@ -12,13 +12,21 @@ export const fetchPlayers = () => {
 
 export const getPlayers = () => {
     return appStatePlayers
+    
 }
 
 const newId = () => {
-    const lastIndex = appStatePlayers.length -1
-    const newId = appStatePlayers[lastIndex].id +1
+    let newId = 0
+    if(appStatePlayers.length < 1){
+        newId = 1
+    } else{
+        const lastIndex = appStatePlayers.length -1
+        const newId = appStatePlayers[lastIndex].id +1
+    }
     return newId
 }
+
+
 
 export const setPlayer = (playerObject) => {
     playerObject.id = newId()

@@ -1,222 +1,70 @@
 {
   "teams": [
     {
-      "id": 1,
-      "name": "Goblins"
-    },
-    {
-      "id": 2,
-      "name": "Fairies"
-    },
-    {
-      "id": 3,
-      "name": "Knights"
-    },
-    {
       "id": 4,
       "name": "Bills"
     },
     {
-      "id": 5,
-      "name": "Bears"
-    },
-    {
       "id": 6,
-      "name": "Newst team"
+      "name": "Apples"
     },
     {
       "id": 7,
-      "name": "Added Team"
+      "name": "Fairies"
     },
     {
       "id": 8,
-      "name": "It's Working!"
+      "name": "Goblins"
     },
     {
       "id": 9,
-      "name": "working 2"
-    },
-    {
-      "id": 10,
-      "name": "working 3"
+      "name": "Will's Team"
     }
   ],
   "players": [
     {
-      "id": 1,
-      "name": "John",
-      "teamId": 1
+      "playerFirstName": "asdf",
+      "playerLastName": "asdf",
+      "teamId": "4",
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Will",
-      "teamId": 3
-    },
-    {
-      "id": 3,
-      "name": "Carl",
-      "teamId": 2
-    },
-    {
-      "id": 4,
-      "name": "Burt",
-      "teamId": 2
-    },
-    {
-      "id": 5,
-      "name": "Bill",
-      "teamId": 2
-    },
-    {
-      "id": 6,
-      "name": "Mark",
-      "teamId": 3
+      "playerFirstName": "asdf",
+      "playerLastName": "asdf",
+      "teamId": "6",
+      "id": 4
     },
     {
       "playerFirstName": "Will",
       "playerLastName": "Wardrop",
-      "playerTeam": "6",
+      "teamId": "9",
+      "id": 5
+    },
+    {
+      "playerFirstName": "Lin",
+      "playerLastName": "Cao",
+      "teamId": "9",
+      "id": 6
+    },
+    {
+      "playerFirstName": "Rando",
+      "playerLastName": "Person",
+      "teamId": "9",
       "id": 7
     },
     {
-      "playerFirstName": "anders",
-      "playerLastName": "gh",
-      "playerTeam": "10",
+      "playerFirstName": "should",
+      "playerLastName": "load to bills team",
+      "teamId": "4",
       "id": 8
     }
   ],
   "teamScores": [
     {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 3,
-      "id": 2
-    },
-    {
       "teamId": 4,
       "teamName": "Bills",
       "teamScore": 9,
       "id": 3
-    },
-    {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": 6,
-      "id": 4
-    },
-    {
-      "teamId": 6,
-      "teamName": "Newst team",
-      "teamScore": 0,
-      "id": 5
-    },
-    {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 3,
-      "id": 6
-    },
-    {
-      "teamId": 7,
-      "teamName": "Added Team",
-      "teamScore": 0,
-      "id": 7
-    },
-    {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": 3,
-      "id": 8
-    },
-    {
-      "teamId": 3,
-      "teamName": "Knights",
-      "teamScore": 9,
-      "id": 9
-    },
-    {
-      "teamId": 7,
-      "teamName": "Added Team",
-      "teamScore": 6,
-      "id": 10
-    },
-    {
-      "teamId": 6,
-      "teamName": "Newst team",
-      "teamScore": 13,
-      "id": 11
-    },
-    {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": 6,
-      "id": 12
-    },
-    {
-      "teamId": 5,
-      "teamName": "Bears",
-      "teamScore": 9,
-      "id": 13
-    },
-    {
-      "teamId": 8,
-      "teamName": "It's Working!",
-      "teamScore": 0,
-      "id": 14
-    },
-    {
-      "teamId": 8,
-      "teamName": "It's Working!",
-      "teamScore": 12,
-      "id": 15
-    },
-    {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 2,
-      "id": 16
-    },
-    {
-      "teamId": 5,
-      "teamName": "Bears",
-      "teamScore": 4,
-      "id": 17
-    },
-    {
-      "teamId": 9,
-      "teamName": "working 2",
-      "teamScore": 0,
-      "id": 18
-    },
-    {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 26,
-      "id": 19
-    },
-    {
-      "teamId": 3,
-      "teamName": "Knights",
-      "teamScore": 13,
-      "id": 20
-    },
-    {
-      "teamId": 9,
-      "teamName": "working 2",
-      "teamScore": 10,
-      "id": 21
-    },
-    {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 14,
-      "id": 22
-    },
-    {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": 16,
-      "id": 23
     },
     {
       "teamId": 4,
@@ -225,40 +73,10 @@
       "id": 24
     },
     {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 3,
-      "id": 25
-    },
-    {
       "teamId": 4,
       "teamName": "Bills",
       "teamScore": 6,
       "id": 26
-    },
-    {
-      "teamId": 7,
-      "teamName": "Added Team",
-      "teamScore": 9,
-      "id": 27
-    },
-    {
-      "teamId": 10,
-      "teamName": "working 3",
-      "teamScore": 0,
-      "id": 28
-    },
-    {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 23,
-      "id": 29
-    },
-    {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": 49,
-      "id": 30
     },
     {
       "teamId": 4,
@@ -267,40 +85,46 @@
       "id": 31
     },
     {
-      "teamId": 10,
-      "teamName": "working 3",
-      "teamScore": 49,
-      "id": 32
+      "teamId": 6,
+      "teamName": "Apples",
+      "teamScore": 0,
+      "id": 59
+    },
+    {
+      "teamId": 7,
+      "teamName": "Fairies",
+      "teamScore": 0,
+      "id": 60
+    },
+    {
+      "teamId": 8,
+      "teamName": "Goblins",
+      "teamScore": 0,
+      "id": 61
     },
     {
       "teamId": 9,
-      "teamName": "working 2",
-      "teamScore": 15,
-      "id": 33
+      "teamName": "Will's Team",
+      "teamScore": 0,
+      "id": 62
     },
     {
-      "teamId": 8,
-      "teamName": "It's Working!",
-      "teamScore": 18,
-      "id": 34
+      "teamId": 4,
+      "teamName": "Bills",
+      "teamScore": 3,
+      "id": 63
     },
     {
-      "teamId": 1,
-      "teamName": "Goblins",
-      "teamScore": 14,
-      "id": 35
+      "teamId": 9,
+      "teamName": "Will's Team",
+      "teamScore": 6,
+      "id": 64
     },
     {
-      "teamId": 2,
-      "teamName": "Fairies",
-      "teamScore": null,
-      "id": 36
-    },
-    {
-      "teamId": 8,
-      "teamName": "It's Working!",
-      "teamScore": null,
-      "id": 37
+      "teamId": 6,
+      "teamName": "Apples",
+      "teamScore": 9,
+      "id": 65
     }
   ]
 }
