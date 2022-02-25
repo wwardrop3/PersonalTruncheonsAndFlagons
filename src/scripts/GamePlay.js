@@ -71,7 +71,7 @@ document.addEventListener(
                 });
                 
                 resetCurrentTeamScores()
-                document.dispatchEvent(new CustomEvent("stateChanged"))
+                document.dispatchEvent(new CustomEvent("gameCompleted"))
                 
                 
                 

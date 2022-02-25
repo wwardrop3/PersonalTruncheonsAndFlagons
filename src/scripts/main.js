@@ -44,3 +44,18 @@ document.addEventListener(
     }
 )
 
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        if(clickEvent.target.id ==="startGame"){
+            document.querySelector("#gamePlay").innerHTML = GameSetUp()
+        }
+    }
+)
+
+document.addEventListener(
+    "gameCompleted",
+    (customEvent) => {
+        render()
+    }
+)
