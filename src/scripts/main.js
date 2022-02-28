@@ -12,8 +12,8 @@ export const API = "https://personal-truncheons-api-vba5r.ondigitalocean.app"
 
 const render = () => {
     fetchTeamScores()
-    .then(fetchPlayers)
-    .then(fetchTeams)
+    .then(() => fetchPlayers())
+    .then(() =>fetchTeams())
     .then(() => document.querySelector("#mainContainer").innerHTML = siteHTML())
     .then(teamEventListener)
     
