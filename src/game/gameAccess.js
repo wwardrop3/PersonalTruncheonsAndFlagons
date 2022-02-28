@@ -93,6 +93,7 @@ export const sendGame = (teamObject) => {
     }
     return fetch(`${API}/teamScores`, fetchOptions)
     .then(response => response.json())
+    .then(document.dispatchEvent(new CustomEvent("stateChanged")))
     
 }
 

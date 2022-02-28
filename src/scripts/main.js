@@ -1,5 +1,6 @@
 import { CurrentGame } from "../game/CurrentGame.js"
 import { fetchTeamScores } from "../game/gameAccess.js"
+import { LeaderBoard } from "../game/Leaderboard.js"
 import { fetchPlayers } from "../player/playerAccess.js"
 import { teamEventListener } from "../team/Team.js"
 import { fetchTeams, setTeam } from "../team/teamAccess.js"
@@ -56,6 +57,7 @@ document.addEventListener(
 document.addEventListener(
     "gameCompleted",
     (customEvent) => {
-        render()
+        document.querySelector("#leaderboard").innerHTML = LeaderBoard()
+        
     }
 )
